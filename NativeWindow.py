@@ -114,10 +114,8 @@ class NativeWindow(QMainWindow):
         self.DwmExtendFrameIntoClientArea(hWnd, byref(margins))
 
     def __setWindowsBorder(self):
-        style = win32gui.GetWindowLong(int(self.winId()), win32con.GWL_STYLE)
         win32gui.SetWindowLong(int(self.winId()), win32con.GWL_STYLE,
-                               style
-                               | win32con.WS_THICKFRAME
+                               win32con.WS_THICKFRAME
                                | win32con.WS_MINIMIZEBOX
                                | win32con.WS_MAXIMIZEBOX
                                | win32con.WS_CAPTION
