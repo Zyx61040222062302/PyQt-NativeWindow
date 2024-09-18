@@ -401,6 +401,8 @@ class NativeWindow(QMainWindow):
             if msg.wParam == win32con.VK_F4:
                 QApplication.sendEvent(self, QCloseEvent())
                 return False, 0
+        elif msg.message == win32con.WM_ENTERSIZEMOVE:
+            self.update()
         return QMainWindow.nativeEvent(self, eventType, message)
 
     def __monitorNCCALCSIZE(self, msg: MSG):
